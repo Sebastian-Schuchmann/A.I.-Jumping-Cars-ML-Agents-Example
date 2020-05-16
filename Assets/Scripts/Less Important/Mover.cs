@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Simple Enemy script. It just moves forward with a speed you determine
+ */
 public class Mover : MonoBehaviour
 {
     [SerializeField] private float speed;

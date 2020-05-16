@@ -1,0 +1,1 @@
+These prefabs are referenced in the spawner objects. They are basically the enemies. Both are just simple gameObjects that constantly move in a single direction. Additionally they contain a extra collider behind them that adds a score point to the player on hit. 
