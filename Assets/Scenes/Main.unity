@@ -1714,7 +1714,7 @@ MonoBehaviour:
   - {fileID: 4417169525432353905, guid: c7301666fd2134c83ae82778a3b71552, type: 3}
   - {fileID: 6926064655003989937, guid: 76ad2f185cc8a47a7ab4d7bafec55aaa, type: 3}
   minSpawnIntervalInSeconds: 1.5
-  maxSpawnIntervalInSeconds: 2.81
+  maxSpawnIntervalInSeconds: 3
 --- !u!4 &1111190587
 Transform:
   m_ObjectHideFlags: 0
