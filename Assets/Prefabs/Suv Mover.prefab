@@ -384,7 +384,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21caa6dfb77de4dfba7bf1d5068afb52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 30
+  speed: 20
 --- !u!65 &3481973760728575337
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -475,7 +475,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 7576386722563338562, guid: b39b23c669d514082a04067bf9698601, type: 3}
-  - {fileID: -6139386096153423777, guid: f1dba5ea3188548e588ac8f2d59ef7d0, type: 3}
+  - {fileID: 2100000, guid: c67450f290f3e4897bc40276a619e78d, type: 2}
   - {fileID: -3963241562183589234, guid: b39b23c669d514082a04067bf9698601, type: 3}
   - {fileID: 3398073514908505954, guid: b39b23c669d514082a04067bf9698601, type: 3}
   - {fileID: 1014270287720225592, guid: b39b23c669d514082a04067bf9698601, type: 3}

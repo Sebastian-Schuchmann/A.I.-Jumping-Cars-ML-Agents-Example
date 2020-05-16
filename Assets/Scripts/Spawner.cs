@@ -19,6 +19,7 @@ public class Spawner : MonoBehaviour
     {
         jumper = GetComponentInChildren<Jumper>();
         jumper.OnReset += Reset;
+        
         StartCoroutine(nameof(Spawn));
     }
 
@@ -35,7 +36,7 @@ public class Spawner : MonoBehaviour
     {
         var spawned = Instantiate(GetRandomSpawnableFromList(), transform.position, transform.rotation, transform);
         spawnedObjects.Add(spawned);
-
+        
         yield return new WaitForSeconds(Random.Range(minSpawnIntervalInSeconds, maxSpawnIntervalInSeconds));
         StartCoroutine(nameof(Spawn));
     }

@@ -11,57 +11,40 @@ public class Jumper : Agent
     [SerializeField] private KeyCode jumpKey;
     
     private bool jumpIsReady = true;
+    private Rigidbody rigidbody;
     private Vector3 startingPosition;
-    private StatsRecorder statsRecorder;
-    
-    private int score = 0;
-    private int highScore = 0;
-    
-    public event Action OnReset;
 
+    private int score = 0;
 
     public override void Initialize()
     {
-        statsRecorder = Academy.Instance.StatsRecorder;
+        rigidbody = GetComponent<Rigidbody>();
         startingPosition = transform.position;
     }
-
-
+    
     public override void OnActionReceived(float[] vectorAction)
     {
-        var action = Mathf.FloorToInt(vectorAction[0]);
-
-        if (action == 1)
-        {
+        if (Mathf.FloorToInt(vectorAction[0]) == 1)
             Jump();
-        }
     }
     
     public override void OnEpisodeBegin()
     {
-        RecordScore();
-
-
         score = 0;
         jumpIsReady = true;
         transform.position = startingPosition;
-        GetComponent<Rigidbody>().velocity = Vector3.zero;
+        rigidbody.velocity = Vector3.zero;
     }
-
-    private void RecordScore()
-    {
-        statsRecorder.Add("score", score);
-    }
-
-
+    
     public override void Heuristic(float[] actionsOut)
     {
         if (Input.GetKey(jumpKey))
         {
             actionsOut[0] = 1;
         }
-        else //We have to reset actionsOut if we dont want constant jumping
+        else 
         {
+            //We have to reset actionsOut if we dont want constant jumping
             actionsOut[0] = 0;
         }
     }
@@ -70,7 +53,7 @@ public class Jumper : Agent
     {
         if (jumpIsReady)
         {
-            GetComponent<Rigidbody>().AddForce(new Vector3(0, jumpForce, 0), ForceMode.VelocityChange);
+            rigidbody.AddForce(new Vector3(0, jumpForce, 0), ForceMode.VelocityChange);
             jumpIsReady = false;
         }
     }
@@ -90,7 +73,6 @@ public class Jumper : Agent
         
         else if (collidedObj.gameObject.CompareTag("Mover") || collidedObj.gameObject.CompareTag("DoubleMover"))
         {
-            OnReset?.Invoke();
             SetReward(-1.0f);
             EndEpisode();
         }
