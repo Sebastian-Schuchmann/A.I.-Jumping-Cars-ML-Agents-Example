@@ -7,6 +7,8 @@ using UnityEngine;
 
 public class Jumper : Agent
 {
+    public event Action OnReset;
+    
     [SerializeField] private float jumpForce;
     [SerializeField] private KeyCode jumpKey;
     
@@ -34,6 +36,7 @@ public class Jumper : Agent
         jumpIsReady = true;
         transform.position = startingPosition;
         rigidbody.velocity = Vector3.zero;
+        OnReset?.Invoke();
     }
     
     public override void Heuristic(float[] actionsOut)
