@@ -1,0 +1,4 @@
+model_checkpoint_path: "model-132259.ckpt"
+all_model_checkpoint_paths: "model-48751.ckpt"
+all_model_checkpoint_paths: "model-98431.ckpt"
+all_model_checkpoint_paths: "model-132259.ckpt"
